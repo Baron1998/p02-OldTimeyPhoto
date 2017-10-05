@@ -4,9 +4,20 @@
 #include "bitmap.h"
 #include<iostream>
 
-using namespce std;
+using namespace std;
 int main() 
 {
+
+Bitmap image;
+vector <vector <Pixel> > bmp;
+
+image.open("machupicchu.bmp");
+cout<< "machupicchu.bmp has been loaded \n";
+
+bmp = image.toPixelMatrix();
+cout<< " it is  "<< bmp.size() << "pixels high and  " << bmp[0].size() << " pixels wide \n";
+    
+
 //declare veriables (Bitmap) ,(vector <vector <Pixel> > ) , and (Pixel).
 //output "what is the file name?" must be an image with BMP format
 //input the image that the user choose 
