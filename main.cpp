@@ -1,8 +1,9 @@
 // Author : Abdullah Baron 
-#include<string>
-#include<vector>
+#include <iostream>
+#include <string>
+#include <vector>
 #include "bitmap.h"
-#include<iostream>
+#include<string>
 
 using namespace std;
 int main() 
@@ -10,13 +11,41 @@ int main()
 
 Bitmap image;
 vector <vector <Pixel> > bmp;
+Pixel rgb;
+string name;
 
+/*
 image.open("machupicchu.bmp");
 cout<< "machupicchu.bmp has been loaded \n";
-
 bmp = image.toPixelMatrix();
 cout<< " it is  "<< bmp.size() << "pixels high and  " << bmp[0].size() << " pixels wide \n";
-    
+*/
+
+cout<< "what is the file name? (notice the file need to be in BMP format)\n";
+cin>> name;
+image.open(name);
+cout<< name <<"  has been loaded \n";
+bmp = image.toPixelMatrix();
+
+int h = 0; // h = high
+int w = 0; // w = wide
+
+
+for( h; h<bmp.size(); h++)
+    { 
+      for(w; w<bmp[0].size(); w++)
+          {
+           rgb = bmp [h][w];
+           rgb.red = 50;
+           rgb.green = 50;
+           rgb.blue = 50;
+           bmp[h][w] = rgb;
+           }
+    }
+
+
+image.fromPixelMatrix(bmp);
+image.save("try1.bmp");
 
 //declare veriables (Bitmap) ,(vector <vector <Pixel> > ) , and (Pixel).
 //output "what is the file name?" must be an image with BMP format
