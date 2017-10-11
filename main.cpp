@@ -53,13 +53,16 @@ for(int h = 0; h<bmp.size(); h++)  //h = hight
 image.fromPixelMatrix(bmp);
 image.save("oldtimey.bmp");
 
-//declare veriables (Bitmap) ,(vector <vector <Pixel> > ) , and (Pixel).
-//output "what is the file name?" must be an image with BMP format
-//input the image that the user choose 
-// choose values for r , g , and b let's say 50 
-// when r=50 , g=50 , and b=50 we will git a gray color = 50
-//now we choose these values for every pixel of that image.
-//to change every pixel we need to use a loop(for loop) to make sure that every pixel will change to gray 
-//save the new image.
+/* x17: Planning Project 2 (part 1)
+declare veriables (Bitmap) ,(vector <vector <Pixel> > ) , and (Pixel).
+output "what is the file name?" must be an image with BMP format
+input the image that the user choose 
+choose values for r , g , and b let's say 50 
+when r=50 , g=50 , and b=50 we will git a gray color = 50
+now we choose these values for every pixel of that image.
+to change every pixel we need to use a loop(for loop) to make sure that every pixel will change to gray 
+save the new image.
+*/
+
   return 0;
 }
