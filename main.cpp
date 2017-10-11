@@ -1,4 +1,6 @@
 // Author : Abdullah Baron 
+
+// declear the header files 
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,46 +8,50 @@
 #include<string>
 
 using namespace std;
+
 int main() 
 {
-
+// Declearing the veriables that i need for this project
 Bitmap image;
 vector <vector <Pixel> > bmp;
 Pixel rgb;
 string name;
+bool BmpImage;
+ 
+ // using do while loop to get the name of the file and keep asking for the name until they entered the correct format
+do  {
+    cout<< "what is the file name? (notice the file need to be in BMP format)\n";
+    cin>> name;
+    image.open(name);
+    BmpImage = image.isImage();
+    }
+    while(BmpImage == false);
 
-/*
-image.open("machupicchu.bmp");
-cout<< "machupicchu.bmp has been loaded \n";
-bmp = image.toPixelMatrix();
-cout<< " it is  "<< bmp.size() << "pixels high and  " << bmp[0].size() << " pixels wide \n";
-*/
 
-cout<< "what is the file name? (notice the file need to be in BMP format)\n";
-cin>> name;
-image.open(name);
 cout<< name <<"  has been loaded \n";
-bmp = image.toPixelMatrix();
+bmp = image.toPixelMatrix(); 
+int aver; // declearign veriable to save the average inside it
+     
 
-int h = 0; // h = high
-int w = 0; // w = wide
-
-
-for( h; h<bmp.size(); h++)
+ // show the matrice by using two for loops to change every pixel of the picture to gray by finding the average between red, green,and blue
+for(int h = 0; h<bmp.size(); h++)  //h = hight 
     { 
-      for(w; w<bmp[0].size(); w++)
+      for(int w = 0; w<bmp[h].size(); w++) // w = width
           {
+          //cout<<"editing "<<h<<" height and "<<w<<" width."<<endl;
            rgb = bmp [h][w];
-           rgb.red = 50;
-           rgb.green = 50;
-           rgb.blue = 50;
+           aver = (rgb.red + rgb.green + rgb.blue)/3;
+           rgb.green = aver;
+           rgb.red = aver;
+           rgb.blue = aver;
            bmp[h][w] = rgb;
            }
     }
 
-
+// overwrite the current bitmap with the bitmap that represented by a matrix of pixel and save the picture
+// also, i choose the picture name when i save it
 image.fromPixelMatrix(bmp);
-image.save("try1.bmp");
+image.save("oldtimey.bmp");
 
 //declare veriables (Bitmap) ,(vector <vector <Pixel> > ) , and (Pixel).
 //output "what is the file name?" must be an image with BMP format
