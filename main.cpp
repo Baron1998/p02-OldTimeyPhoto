@@ -20,12 +20,13 @@ int main()
  
  // using do while loop to get the name of the file and keep asking for the name until they entered the correct format
  do  {
+
       cout<< "what is the file name? (notice the file need to be in BMP format)\n";
       cin>> name;
       image.open(name);
       BmpImage = image.isImage();
-     }
-      while(BmpImage == false);
+
+     } while(BmpImage == false);
 
 
  cout<< name <<"  has been loaded \n";
